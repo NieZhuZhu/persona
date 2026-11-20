@@ -111,6 +111,10 @@ class ChatChromeTest {
             current.copy(spaceId = null, workspaceId = "bytedance"),
             listOf(peer.copy(spaceId = null, workspaceId = "bytedance")),
         ).isEmpty())
+        assertTrue(spaceCompanions(
+            current.copy(spaceId = null, spaceName = "bytedance"),
+            listOf(peer.copy(spaceId = null, spaceName = "bytedance")),
+        ).isEmpty())
         val worker = peer.copy(sessionId = "worker", foldedUnder = "current")
         assertEquals(listOf(peer), spaceCompanions(current, listOf(current, peer, worker)))
         assertEquals("配对已失效", connectionTitle(res, ConnectionState.Revoked))
